@@ -9,10 +9,10 @@ namespace LMVirtualGallery.Data
 {
     public class Event
     {
-        public class UpcomingEvents
-        {
             [Key]
             public int EventId { get; set; }
+            [Required]
+            public Guid OwnerId { get; set; }
             [Required]
             [Display(Name = "Name of Event")]
             public string NameOfEvent { get; set; }
@@ -26,6 +26,6 @@ namespace LMVirtualGallery.Data
             [Display(Name = "Event Date")]
             public DateTime EventDate { get; set; }
 
-        }
+       
     }
 }

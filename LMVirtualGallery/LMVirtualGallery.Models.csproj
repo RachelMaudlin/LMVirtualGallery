@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventCreate.cs" />
+    <Compile Include="EventItems.cs" />
     <Compile Include="ExhibitionDetail.cs" />
     <Compile Include="ExhibitionCreate.cs" />
     <Compile Include="ExhibitionEdit.cs" />

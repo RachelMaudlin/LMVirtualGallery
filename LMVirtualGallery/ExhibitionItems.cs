@@ -9,6 +9,7 @@ namespace LMVirtualGallery
 {
     public class ExhibitionItems
     {
+        [Display(Name ="Exhibition Number")]
         public int ExhibitionId { get; set; }
         [Required]
         [Display(Name = "Name of Exhibition")]

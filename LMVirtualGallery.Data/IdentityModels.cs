@@ -34,6 +34,7 @@ namespace LMVirtualGallery.Data
 
         public DbSet<Composition> Compositions { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
+        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
