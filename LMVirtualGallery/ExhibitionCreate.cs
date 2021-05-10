@@ -5,14 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMVirtualGallery.Data
+namespace LMVirtualGallery
 {
-    public class Exhibition
+    public class ExhibitionCreate
     {
-        [Key]
-        public int ExhibitionId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
         [Required]
         [Display(Name = "Name of Exhibition")]
         public string ExhibitionName { get; set; }

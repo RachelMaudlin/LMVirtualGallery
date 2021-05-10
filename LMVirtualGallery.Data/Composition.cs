@@ -10,16 +10,11 @@ namespace LMVirtualGallery.Data
 {
     public class Composition
     {
-        [Required]
-        [ForeignKey(nameof(Exhibition))]
-        public int ExhibitionId { get; set; }
-
         [Key]
         public int CompositionId { get; set; }
 
         [Required]
         [Display(Name = "Name of Composition")]
-        [Column(TypeName = "nvarchar(50)")]
         public string CompositionName { get; set; }
 
         [Required]

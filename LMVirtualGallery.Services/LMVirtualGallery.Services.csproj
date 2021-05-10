@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExhibitionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LMVirtualGallery.Data\LMVirtualGallery.Data.csproj">
+      <Project>{2f05e181-833c-4737-83f5-fe9a5fed0cc8}</Project>
+      <Name>LMVirtualGallery.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMVirtualGallery\LMVirtualGallery.Models.csproj">
+      <Project>{bcb80b3a-915a-44cb-b3c3-fcf37b749bc0}</Project>
+      <Name>LMVirtualGallery.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
