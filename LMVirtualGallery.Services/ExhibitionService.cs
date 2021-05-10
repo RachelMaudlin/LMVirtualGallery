@@ -54,5 +54,25 @@ namespace LMVirtualGallery.Services
                 return query.ToArray();
             }
         }
+
+        public ExhibitionDetail GetExhibitionById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exhibitions
+                        .Single(e => e.ExhibitionId == id && e.OwnerId == _userId);
+                return
+                    new ExhibitionDetail
+                    {
+                        ExhibitionId = entity.ExhibitionId,
+                        ExhibitionName = entity.ExhibitionName,
+                        ExhibitionDescription = entity.ExhibitionDescription,
+                        ExhibitionDate = entity.ExhibitionDate,
+                        ExhibitionLocation = entity.ExhibitionLocation
+                    };
+            }
+        }
     }
 }

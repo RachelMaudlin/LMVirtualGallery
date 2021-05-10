@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using LMVirtualGallery.Services;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Web.Mvc;
 
 namespace LMVirtualGallery.WebMVC.Controllers
@@ -12,7 +11,9 @@ namespace LMVirtualGallery.WebMVC.Controllers
         // GET: Exhibition
         public ActionResult Index()
         {
-            var model = new ExhibitionItems[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ExhibitionService(userId);
+            var model = service.GetExhibitions();
             return View(model);
         }
 
@@ -27,10 +28,31 @@ namespace LMVirtualGallery.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ExhibitionCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateExhibitionService();
+
+            if(service.CreateExhibition(model))
+            {
+                TempData["SaveResult"] = "Your exhibition was created.";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "Exhibition could not be created.");
+            return View(model);
+        }
+
+        private ExhibitionService CreateExhibitionService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ExhibitionService(userId);
+            return service;
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateExhibitionService();
+            var model = svc.GetExhibitionById(id);
+
             return View(model);
         }
     }
