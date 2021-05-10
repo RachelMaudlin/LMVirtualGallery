@@ -55,5 +55,67 @@ namespace LMVirtualGallery.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateExhibitionService();
+            var detail = service.GetExhibitionById(id);
+            var model =
+                new ExhibitionEdit
+                {
+                    ExhibitionId = detail.ExhibitionId,
+                    ExhibitionName = detail.ExhibitionName,
+                    ExhibitionDescription = detail.ExhibitionDescription,
+                    ExhibitionDate = detail.ExhibitionDate,
+                    ExhibitionLocation = detail.ExhibitionLocation
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id,ExhibitionEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.ExhibitionId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateExhibitionService();
+
+            if (service.UpdateExhibition(model))
+            {
+                TempData["SaveResult"] = "Your exhibition was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your exhibition could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateExhibitionService();
+            var model = svc.GetExhibitionById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateExhibitionService();
+
+            service.DeleteExhibition(id);
+
+            TempData["SaveResult"] = "Your exhibition was deleted.";
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model LMVirtualGallery.ExhibitionDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExhibitionDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExhibitionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExhibitionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExhibitionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExhibitionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExhibitionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExhibitionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExhibitionLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExhibitionLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExhibitionId }) |
+    @Html.ActionLink("Back to Exhibitions", "Index")
+</p>

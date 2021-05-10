@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="ExhibitionDetail.cs" />
     <Compile Include="ExhibitionCreate.cs" />
+    <Compile Include="ExhibitionEdit.cs" />
     <Compile Include="ExhibitionItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

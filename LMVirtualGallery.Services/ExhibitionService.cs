@@ -74,5 +74,38 @@ namespace LMVirtualGallery.Services
                     };
             }
         }
+
+        public bool UpdateExhibition(ExhibitionEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exhibitions
+                        .Single(e => e.ExhibitionId == model.ExhibitionId && e.OwnerId == _userId);
+
+                entity.ExhibitionName = model.ExhibitionName;
+                entity.ExhibitionDescription = model.ExhibitionDescription;
+                entity.ExhibitionDate = model.ExhibitionDate;
+                entity.ExhibitionLocation = model.ExhibitionLocation;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteExhibition(int exhibitionId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exhibitions
+                        .Single(e => e.ExhibitionId == exhibitionId && e.OwnerId == _userId);
+
+                ctx.Exhibitions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
