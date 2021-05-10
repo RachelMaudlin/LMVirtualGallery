@@ -43,12 +43,12 @@ namespace LMVirtualGallery.Data
             modelBuilder
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
-                .Add(new IdentityUserRoleConfiguration())
+                .Add(new IdentityUserRoleConfiguration());
         }
 
     }
 
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
         {
