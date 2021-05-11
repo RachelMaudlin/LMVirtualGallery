@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventCreate.cs" />
+    <Compile Include="EventDetail.cs" />
+    <Compile Include="EventEdit.cs" />
     <Compile Include="EventItems.cs" />
     <Compile Include="ExhibitionDetail.cs" />
     <Compile Include="ExhibitionCreate.cs" />

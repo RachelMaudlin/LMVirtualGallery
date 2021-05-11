@@ -55,6 +55,58 @@ namespace LMVirtualGallery.Services
                 return query.ToArray();
             }
         }
+
+        public EventDetail GetEventById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == id && e.OwnerId == _userId);
+                return
+                    new EventDetail
+                    {
+                        EventId = entity.EventId,
+                        NameOfEvent = entity.NameOfEvent,
+                        EventDescription = entity.EventDescription,
+                        EventDate = entity.EventDate,
+                        EventAddress = entity.EventAddress
+                    };
+                   
+            }
+        }
+
+        public bool UpdateEvent(EventEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
+
+                entity.NameOfEvent = model.NameOfEvent;
+                entity.EventDescription = model.EventDescription;
+                entity.EventDate = model.EventDate;
+                entity.EventAddress = model.EventAddress;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteEvent(int eventId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == eventId && e.OwnerId == _userId);
+                ctx.Events.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
        
     }
 }
