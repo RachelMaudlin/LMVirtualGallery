@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositionCreate.cs" />
+    <Compile Include="CompositionDetail.cs" />
+    <Compile Include="CompositionEdit.cs" />
+    <Compile Include="CompositionItems.cs" />
     <Compile Include="EventCreate.cs" />
     <Compile Include="EventDetail.cs" />
     <Compile Include="EventEdit.cs" />
