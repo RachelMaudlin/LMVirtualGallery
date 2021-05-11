@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMVirtualGallery.Data
+namespace LMVirtualGallery.Data.Entities
 {
     public class Exhibition
     {
@@ -24,5 +24,7 @@ namespace LMVirtualGallery.Data
         public string ExhibitionDate { get; set; }
         [Display(Name = "Exhibition Location")]
         public string ExhibitionLocation { get; set; }
+
+        public virtual ICollection<Gallery> Galleries { get; set; } = new List<Gallery>();
     }
 }

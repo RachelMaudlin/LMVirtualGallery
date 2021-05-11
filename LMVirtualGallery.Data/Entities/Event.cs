@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMVirtualGallery.Data
+namespace LMVirtualGallery.Data.Entities
 {
     public class Event
     {

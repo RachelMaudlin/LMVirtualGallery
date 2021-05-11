@@ -1,0 +1,72 @@
+﻿@model LMVirtualGallery.CompositionDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CompositionDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionMedium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionMedium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionCreation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionCreation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

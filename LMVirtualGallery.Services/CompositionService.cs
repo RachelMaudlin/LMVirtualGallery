@@ -25,7 +25,8 @@ namespace LMVirtualGallery.Services
                     CompositionName = model.CompositionName,
                     CompositionMedium = model.CompositionMedium,
                     CompositionDescription = model.CompositionDescription,
-                    CompositionCreation = model.CompositionCreation
+                    CompositionCreation = model.CompositionCreation,
+                    ImageName = model.ImageName
                 };
 
             using(var ctx = new ApplicationDbContext())
@@ -53,6 +54,60 @@ namespace LMVirtualGallery.Services
                                  }
                                 );
                 return query.ToArray();
+            }
+        }
+
+        public CompositionDetail GetCompositionById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Compositions
+                        .Single(e => e.CompositionId == id && e.OwnerId == _userId);
+                return
+                    new CompositionDetail
+                    {
+                        CompositionId = entity.CompositionId,
+                        CompositionName = entity.CompositionName,
+                        ImageName = entity.ImageName,
+                        CompositionDescription = entity.CompositionDescription,
+                        CompositionMedium = entity.CompositionMedium,
+                        CompositionCreation = entity.CompositionCreation
+                    };
+            }
+        }
+
+        public bool UpdateComposition(CompositionEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Compositions
+                        .Single(e => e.CompositionId == model.CompositionId && e.OwnerId == _userId);
+
+                entity.CompositionName = model.CompositionName;
+                entity.ImageName = model.ImageName;
+                entity.CompositionMedium = model.CompositionMedium;
+                entity.CompositionDescription = model.CompositionDescription;
+                entity.CompositionCreation = model.CompositionCreation;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteComposition(int compositionId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Compositions
+                        .Single(e => e.CompositionId == compositionId && e.OwnerId == _userId);
+
+                ctx.Compositions.Remove(entity);
+                return ctx.SaveChanges() == 1;
             }
         }
     }

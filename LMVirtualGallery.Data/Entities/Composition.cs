@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMVirtualGallery.Data
+namespace LMVirtualGallery.Data.Entities
 {
     public class Composition
     {
@@ -30,5 +30,7 @@ namespace LMVirtualGallery.Data
 
         [Display(Name = "Date of Composition Creation")]
         public string CompositionCreation { get; set; }
+
+        public virtual ICollection<Gallery> Galleries { get; set; } = new List<Gallery>();
     }
 }
