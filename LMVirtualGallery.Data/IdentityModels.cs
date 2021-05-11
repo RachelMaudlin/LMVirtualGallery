@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using LMVirtualGallery.Data.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -26,15 +27,16 @@ namespace LMVirtualGallery.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Composition> Compositions { get; set; }
+        public DbSet<Exhibition> Exhibitions { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        public DbSet<Composition> Compositions { get; set; }
-        public DbSet<Exhibition> Exhibitions { get; set; }
-        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

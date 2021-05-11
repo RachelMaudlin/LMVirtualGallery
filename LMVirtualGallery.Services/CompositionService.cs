@@ -1,4 +1,5 @@
 ﻿using LMVirtualGallery.Data;
+using LMVirtualGallery.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
