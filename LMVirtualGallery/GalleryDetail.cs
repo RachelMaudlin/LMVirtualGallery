@@ -1,19 +1,16 @@
-﻿using System;
+﻿using LMVirtualGallery.Data.Entities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMVirtualGallery.Data.Entities
+namespace LMVirtualGallery
 {
-    public class Gallery
+    public class GalleryDetail
     {
-        [Key]
         public int GalleryId { get; set; }
-
-        public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(Exhibition))]
         public int ExhibitionId { get; set; }

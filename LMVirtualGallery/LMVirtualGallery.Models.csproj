@@ -67,11 +67,19 @@
     <Compile Include="ExhibitionEdit.cs" />
     <Compile Include="ExhibitionItems.cs" />
     <Compile Include="GalleryCreate.cs" />
+    <Compile Include="GalleryDetail.cs" />
+    <Compile Include="GalleryList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LMVirtualGallery.Data\LMVirtualGallery.Data.csproj">
+      <Project>{2F05E181-833C-4737-83F5-FE9A5FED0CC8}</Project>
+      <Name>LMVirtualGallery.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

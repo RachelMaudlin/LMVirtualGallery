@@ -1,0 +1,42 @@
+﻿@model LMVirtualGallery.GalleryDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GalleryDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GalleryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalleryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExhibitionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExhibitionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompositionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompositionId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GalleryId  }) |
+    @Html.ActionLink("Back to Gallery List", "Index")
+</p>
