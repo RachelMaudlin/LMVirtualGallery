@@ -10,7 +10,6 @@ namespace LMVirtualGallery
 {
     public class GalleryCreate
     {
-        public int GalleryId { get; set; }
 
         [ForeignKey(nameof(Exhibition))]
         public int ExhibitionId { get; set; }

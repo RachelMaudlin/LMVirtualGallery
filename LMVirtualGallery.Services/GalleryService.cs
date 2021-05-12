@@ -23,6 +23,8 @@ namespace LMVirtualGallery.Services
                 new Gallery()
                 {
                     OwnerId = _userId,
+                    CompositionId = model.CompositionId,
+                    ExhibitionId = model.ExhibitionId
                 };
             using (var ctx = new ApplicationDbContext())
             {

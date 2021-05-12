@@ -9,6 +9,32 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="exhibition-board">
+    @foreach (var item in Model)
+    {
+        <div class="exhibition-container col-lg-1-md-3 col-sm-6">
+            <div class="exhibition-card ">
+
+                <div class="exhibition-header text-center">
+                    @Html.DisplayFor(modelItem => item.ExhibitionId) -
+                    @Html.DisplayFor(modelItem => item.ExhibitionName)
+
+                </div>
+                <div class="exhibition-body">
+                    <div class="exhibition-medium text-center">
+                        @Html.DisplayFor(modelItem => item.ExhibitionDescription)
+                    </div>
+                    <div class="exhibition-tools text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ExhibitionId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ExhibitionId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ExhibitionId })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -20,37 +46,6 @@
     </div>
 }
     
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ExhibitionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExhibitionName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExhibitionDescription)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExhibitionId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExhibitionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExhibitionDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ExhibitionId}) |
-            @Html.ActionLink("Details", "Details", new { id=item.ExhibitionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ExhibitionId })
-        </td>
-    </tr>
-}
 
 </table>

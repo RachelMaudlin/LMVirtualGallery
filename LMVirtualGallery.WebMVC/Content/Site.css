@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +21,93 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+img {
+    display: inline-block;
+    max-width: 380%;
+    height: auto;
+}
+
+.composition-card {
+    border: 2px solid;
+    border-color: black;
+    min-height: 100px;
+    margin-bottom: 2em;
+    border-radius: 2em;
+    background-color: grey;
+}
+
+.composition-board {
+    background-color: lightgray;
+    border: 10px;
+    border-color: black;
+    display: flex;
+    padding-top: 6em;
+    padding-bottom: 6em;
+}
+
+.composition-tools {
+    color:black;
+    bottom: 2em;
+}
+
+.composition-header {
+    color: white;
+    
+}
+
+.compositiondisplay-header {
+    color: white;
+    font-family: Arial;
+}
+
+.exhibition-card {
+    border: 2px solid;
+    border-color: black;
+    min-height: 100px;
+    margin-bottom: 2em;
+    border-radius: 2em;
+    background-color: grey;
+}
+
+.exhibition-board {
+    background-color: lightgray;
+    border: 10px;
+    border-color: black;
+    display: flex;
+    padding-top: 6em;
+    padding-bottom: 6em;
+}
+
+.exhibition-tools {
+    color: black;
+    bottom: 2em;
+}
+
+.exhibition-header {
+    color: white;
+}
+
+.exhibitiondisplay-header {
+    color: white;
+    font-family: Arial;
+}
+
+.liv {
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 20px;
+}
+
+.jumbotron {
+    background-color: white;
+    height: 50px;
+
+}
+
+#footer {
+    position: fixed;
+    bottom: 0px;
+    margin-bottom: 0px;
 }

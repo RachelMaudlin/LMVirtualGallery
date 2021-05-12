@@ -9,6 +9,33 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="composition-board">
+    @foreach(var item in Model)
+    {
+    <div class="composition-container col-lg-1-md-3 col-sm-6">
+        <div class="composition-card ">
+            
+            <div class="composition-header text-center">
+
+                @Html.DisplayFor(modelItem => item.CompositionName)
+
+            </div>
+            <div class="Composition-body">
+                <div class="composition-medium text-center">
+                    @Html.DisplayFor(modelItem => item.CompositionMedium)
+                </div>
+                <div class="composition-tools text-center">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompositionId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CompositionId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompositionId })
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -20,38 +47,6 @@
     </div>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CompositionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompositionName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompositionMedium)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompositionId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompositionName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompositionMedium)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CompositionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CompositionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompositionId })
-            </td>
-        </tr>
-    }
 
 </table>
